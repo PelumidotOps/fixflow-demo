@@ -1,6 +1,6 @@
 "use client";
 
-import { readBookings, saveBookings } from "@/lib/demo-bookings";
+import { readBookings, saveBookings, serviceName } from "@/lib/demo-bookings";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { User, Mail, Phone, MapPin, AlignLeft, CheckCircle2 } from "lucide-react";
@@ -38,7 +38,7 @@ export function CustomerForm() {
       updateData(formData);
       
       const id="BK-"+Date.now().toString(36).toUpperCase();
-      saveBookings([{id,customerName:formData.customerName,email:formData.customerEmail,phone:formData.customerPhone,address:formData.serviceAddress,service:(data.serviceId || "HVAC service").replaceAll("-"," "),preferredDate:data.date || "",preferredTime:data.timeSlot || "",status:"Pending",notes:formData.additionalNotes},...readBookings()]);
+      saveBookings([{id,customerName:formData.customerName,email:formData.customerEmail,phone:formData.customerPhone,address:formData.serviceAddress,service:serviceName(data.serviceId || "HVAC service"),preferredDate:data.date || "",preferredTime:data.timeSlot || "",status:"Pending",notes:formData.additionalNotes},...readBookings()]);
       sessionStorage.setItem("fixflow-last-booking",id);
       // Demo submission
       setTimeout(() => {
