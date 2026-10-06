@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: { default: 'FixFlow | HVAC service, simplified', template: '%s | FixFlow' },
+  title: 'FixFlow | HVAC service, simplified',
   description: 'Explore an HVAC service business demo: book a visit, manage requests, and coordinate field work.', robots: { index: false, follow: false },
 }
 
