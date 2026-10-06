@@ -51,6 +51,7 @@ export function CustomerForm() {
     <div className="w-full max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-gray-100">
       <p className="mb-6 rounded-xl bg-sky-50 p-4 text-sm text-sky-900">Use sample details. This request is saved on this device so you can review it in the admin demo.</p>
       {!hasSchedule && <a href="/book" className="block mb-6 text-sky-800 underline">Choose a service, date and time before submitting.</a>}
+      {hasSchedule && <div className="mb-6 rounded-xl border border-gray-200 p-4 text-sm"><strong className="capitalize">{data.serviceId?.replaceAll("-"," ")}</strong><p className="mt-2">{new Date(data.date!).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})} at {data.timeSlot}</p><a href={`/book/${data.serviceId}`} className="inline-block mt-2 text-sky-800 underline">Change date or time</a></div>}
       <form onSubmit={handleSubmit} className="flex flex-col gap-6 lg:gap-8">
         
         {/* Name & Email */}

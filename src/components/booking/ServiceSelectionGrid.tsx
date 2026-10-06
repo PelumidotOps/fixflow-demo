@@ -97,6 +97,7 @@ export function ServiceSelectionGrid() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
+              role="button" tabIndex={0} aria-pressed={isSelected} onKeyDown={e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();handleSelect(service.id);}}}
               onClick={() => handleSelect(service.id)}
               className={cn(
                 "group cursor-pointer flex flex-col justify-between bg-white p-8 rounded-3xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] transition-all duration-300 min-h-[260px] relative border-2",
