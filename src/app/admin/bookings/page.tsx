@@ -317,7 +317,7 @@ export default function BookingsPage() {
                         {booking.service}
                       </div>
                     </td>
-                    <td className="px-6 py-4.5 text-brand-text-secondary font-semibold">{booking.preferredDate}</td>
+                    <td className="px-6 py-4.5 text-brand-text-secondary font-semibold">{new Date(booking.preferredDate).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}</td>
                     <td className="px-6 py-4.5 text-brand-text-secondary font-semibold">{booking.preferredTime}</td>
                     <td className="px-6 py-4.5">
                       <span className={cn("inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase border", STATUS_STYLES[booking.status])}>
@@ -436,7 +436,7 @@ export default function BookingsPage() {
                     <div className="flex flex-col gap-2.5">
                       <div className="flex items-center gap-2.5 text-[13px] font-semibold text-gray-600 bg-white border border-gray-100 py-2 px-3 rounded-xl">
                         <Calendar className="h-4 w-4 text-brand-primary" />
-                        {selectedBooking.preferredDate}
+                        {new Date(selectedBooking.preferredDate).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}
                       </div>
                       <div className="flex items-center gap-2.5 text-[13px] font-semibold text-gray-600 bg-white border border-gray-100 py-2 px-3 rounded-xl">
                         <Clock className="h-4 w-4 text-brand-primary" />
@@ -469,9 +469,9 @@ export default function BookingsPage() {
                 <div className="relative">
                   <select aria-label="Assign technician" defaultValue="" onChange={e=>{setAssignment(e.target.value)}} className="w-full appearance-none bg-white border border-gray-200 hover:border-gray-300 text-brand-black font-bold py-3 pl-4 pr-10 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary/20 cursor-pointer">
                     <option value="" disabled>Assign Technician...</option>
-                    <option value="tom">Tom Harris</option>
-                    <option value="sara">Sara King</option>
-                    <option value="leo">Leo Martinez</option>
+                    <option value="Tom Harris">Tom Harris</option>
+                    <option value="Sara King">Sara King</option>
+                    <option value="Leo Martinez">Leo Martinez</option>
                   </select>
                   <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                 </div>
